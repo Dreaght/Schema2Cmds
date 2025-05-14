@@ -6,7 +6,7 @@ import threading
 def run_pipeline(schema_path, delay, x, y, z, output_label):
     try:
         output_label.config(text="Step 1: Grouping...")
-        subprocess.run(["python", "grouping.py", schema_path], check=True)
+        subprocess.run(["python", "grouping.py", schema_path, x, y, z], check=True)
 
         output_label.config(text="Step 2: Converting to commands...")
         subprocess.run(["python", "convert_to_commands.py", "groups.json"], check=True)
